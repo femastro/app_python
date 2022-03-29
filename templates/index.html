@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="row">
+    <div class="col-md-12">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h3>Convertir Video</h3>
+            </div>
+            <form action="{{url_for('convertir')}}" id="formulario" method="POST">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="video">Link video youtube</label>
+                        <input type="text" name="link" id="link" class="form-control"
+                            placeholder="https://www.youtube.com/watch?v=i9lu1Pi3T">
+                    </div>
+                    <div class="form-group">
+                        <div class="row mt-5">
+                            <div class="col-sm-2">
+                                Opción : 
+                            </div>
+                            <div class="col-sm-1">
+                                <input type="checkbox" class="form-check-inline" name="mp4" id="mp4">
+                            </div>
+                            <div class="col-sm-3">
+                                <h6>Mp4</h6>
+                            </div>
+                            <div class="col-sm-1">
+                                <input type="checkbox" class="form-check-inline" name="mp3" id="mp3">
+                            </div>
+                            <div class="col-sm-3">
+                                <h6>Mp3</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div>
+                        <button onclick="sendData()" id="btn" class="btn btn-primary btn-block">Convertir</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-sm-12 mt-5">
+        <div id="nota"></div>
+    </div>
+</div>
+<script src="{{url_for('static', filename='../js/main.js')}}"></script>
+
+
+
+
+
+{% endblock %}
