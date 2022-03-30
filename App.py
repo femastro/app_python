@@ -49,6 +49,6 @@ def convertir():
 
 # starting the app
 if __name__ == "__main__":
-    webbrowser.open("localhost:3000", new=2, autoraise=True)
+    webbrowser.open("http://127.0.0.1:3000", new=2, autoraise=True)
     app.run(port=3000, debug=True)
 
