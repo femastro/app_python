@@ -1,19 +1,26 @@
+import dataclasses
 import os
+import json
 import webbrowser
+
 
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
 from tqdm import tqdm
 from time import sleep
 
+# get data for connection DB
+with open('config/db.json') as file:
+    data = json.load(file)
+    
 # initializations
 app = Flask(__name__)
 
 # Mysql Connection
-app.config['MYSQL_HOST'] = 'localhost' 
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = '' # Name DB
+app.config['MYSQL_HOST'] = data['url']
+app.config['MYSQL_USER'] = data['user']
+app.config['MYSQL_PASSWORD'] = data['password']
+app.config['MYSQL_DB'] = data['dbase'] # Name DB
 mysql = MySQL(app)
 
 # settings
@@ -48,7 +55,7 @@ def convertir():
 
 
 # starting the app
-if __name__ == "__main__":
+if __name__ == "__main__":    
     webbrowser.open("http://127.0.0.1:3000", new=0, autoraise=True)
     app.run(port=3000, debug=True)
 
