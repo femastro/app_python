@@ -10,8 +10,10 @@ from time import sleep
 # get data for connection DB
 with open('config/db.json') as file:
     data = json.load(file)
+
     
 # initializations
+webbrowser.open("http://127.0.0.1:3000", autoraise=True)
 app = Flask(__name__)
 
 # Mysql Connection
@@ -55,6 +57,5 @@ def convertir():
 
 # starting the app
 if __name__ == "__main__":    
-    webbrowser.open("http://127.0.0.1:3000", autoraise=True)
     app.run(port=3000, debug=True)
 

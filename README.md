@@ -3,7 +3,7 @@
 # Tener Instalado :  
     youtube-dl
 
-# Use Python3 
+# Usar Python3
 
 Install Flask
 Within the activated environment, use the following command to install Flask:
