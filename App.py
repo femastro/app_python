@@ -1,8 +1,6 @@
-import dataclasses
 import os
 import json
 import webbrowser
-
 
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
@@ -17,7 +15,7 @@ with open('config/db.json') as file:
 app = Flask(__name__)
 
 # Mysql Connection
-app.config['MYSQL_HOST'] = data['url']
+app.config['MYSQL_HOST'] = data['host']
 app.config['MYSQL_USER'] = data['user']
 app.config['MYSQL_PASSWORD'] = data['password']
 app.config['MYSQL_DB'] = data['dbase'] # Name DB
@@ -50,12 +48,13 @@ def convertir():
                 proceso = "youtube-dl -x --audio-format mp3 "+ link
 
         os.system(proceso)
+        
         flash('Proceso Completado ....')
         return redirect(url_for('Index'))
 
 
 # starting the app
 if __name__ == "__main__":    
-    webbrowser.open("http://127.0.0.1:3000", new=0, autoraise=True)
+    webbrowser.open("http://127.0.0.1:3000", autoraise=True)
     app.run(port=3000, debug=True)
 
