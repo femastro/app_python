@@ -1,5 +1,5 @@
 import os
-import sys
+#import sys
 import json
 from tracemalloc import stop
 import webbrowser
@@ -9,7 +9,7 @@ from flask_mysqldb import MySQL
 #from tqdm import tqdm
 #from time import sleep
 
-# get data for connection DB
+# Get data for connection DB
 with open('config/db.json') as file:
     data = json.load(file)
 
@@ -19,10 +19,15 @@ webbrowser.open("http://127.0.0.1:3000", autoraise=True)
 app = Flask(__name__)
 
 # Mysql Connection
+
+# Name Host
 app.config['MYSQL_HOST'] = data['host']
+#Name User_Mysql
 app.config['MYSQL_USER'] = data['user']
+# Name Password_Mysql
 app.config['MYSQL_PASSWORD'] = data['password']
-app.config['MYSQL_DB'] = data['dbase'] # Name DB
+# Name DB
+app.config['MYSQL_DB'] = data['dbase'] 
 mysql = MySQL(app)
 
 # settings
@@ -63,8 +68,6 @@ def convertir():
 
 
 # starting the app
-
-
 def init():
     if __name__ == "__main__":    
         app.run(port=3000, debug=True)
