@@ -9,11 +9,16 @@ from flask_mysqldb import MySQL
 #from tqdm import tqdm
 #from time import sleep
 
+# Probando Varaibles de Entorno
+from dotenv import load_dotenv
+load_dotenv()
+title = os.getenv('TITLE')
+print('Titulo = '+ title)
+
 # Get data for connection DB
 with open('config/db.json') as file:
     data = json.load(file)
 
-    
 # initializations
 webbrowser.open("http://127.0.0.1:3000", autoraise=True)
 app = Flask(__name__)
@@ -27,7 +32,9 @@ app.config['MYSQL_USER'] = data['user']
 # Name Password_Mysql
 app.config['MYSQL_PASSWORD'] = data['password']
 # Name DB
-app.config['MYSQL_DB'] = data['dbase'] 
+app.config['MYSQL_DB'] = data['dbase']
+
+# Initial Mysql
 mysql = MySQL(app)
 
 # settings
@@ -65,7 +72,6 @@ def convertir():
         
         flash('Proceso Completado ....')
         return redirect(url_for('Index'))
-
 
 # starting the app
 def init():
