@@ -21,7 +21,14 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h3>Convertir Video</h3>
+                <div class="row">
+                    <div class="col-sm-11">
+                        <h3>Convertir Video</h3>
+                    </div>
+                    <div class="col-sm-1">
+                        <a href="{{url_for('cerrar')}}" class="btn btn-sm btn-danger">Close</a>
+                    </div>
+                </div>
             </div>
             <form action="{{url_for('convertir')}}" id="formulario" method="POST">
                 <div class="card-body">

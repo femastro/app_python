@@ -1,11 +1,13 @@
 import os
+import sys
 import json
+from tracemalloc import stop
 import webbrowser
 
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
-from tqdm import tqdm
-from time import sleep
+#from tqdm import tqdm
+#from time import sleep
 
 # get data for connection DB
 with open('config/db.json') as file:
@@ -29,6 +31,11 @@ app.secret_key = "mysecretkey"
 # routes
 @app.route('/')
 def Index():
+    return render_template('index.html')
+
+@app.route('/cerrar')
+def cerrar():
+    #ver como detener el server 
     return render_template('index.html')
 
 @app.route('/convertir', methods=['POST'])
@@ -56,6 +63,10 @@ def convertir():
 
 
 # starting the app
-if __name__ == "__main__":    
-    app.run(port=3000, debug=True)
 
+
+def init():
+    if __name__ == "__main__":    
+        app.run(port=3000, debug=True)
+        
+init()
