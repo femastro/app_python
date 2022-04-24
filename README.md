@@ -30,3 +30,15 @@ Within the activated environment, use the following command to install Flask:
         "password":"",
         "dbase":"appPython"
     }
+# Usar variable de entorno
+
+    pip install python-dotenv
+
+    # Probando Varaibles de Entorno
+    from dotenv import load_dotenv
+    load_dotenv()
+    title = os.getenv('TITLE')
+    print('Titulo = '+ title)
+
+    Archivo en el root : .env
+        TITLE="titulo" 
