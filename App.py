@@ -1,8 +1,8 @@
 import os
 import json
-from tracemalloc import stop
 import webbrowser
 
+from tracemalloc import stop
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
 #from tqdm import tqdm
