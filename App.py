@@ -4,7 +4,7 @@ import webbrowser
 
 from tracemalloc import stop
 from flask import Flask, render_template, request, redirect, url_for, flash
-from flask_mysqldb import MySQL
+# from flask_mysqldb import MySQL
 #from tqdm import tqdm
 #from time import sleep
 
@@ -24,17 +24,17 @@ app = Flask(__name__)
 
 # Mysql Connection
 
-# Name Host
-app.config['MYSQL_HOST'] = data['host']
-#Name User_Mysql
-app.config['MYSQL_USER'] = data['user']
-# Name Password_Mysql
-app.config['MYSQL_PASSWORD'] = data['password']
-# Name DB
-app.config['MYSQL_DB'] = data['dbase']
+# # Name Host
+# app.config['MYSQL_HOST'] = data['host']
+# #Name User_Mysql
+# app.config['MYSQL_USER'] = data['user']
+# # Name Password_Mysql
+# app.config['MYSQL_PASSWORD'] = data['password']
+# # Name DB
+# app.config['MYSQL_DB'] = data['dbase']
 
-# Initial Mysql
-mysql = MySQL(app)
+# # Initial Mysql
+# mysql = MySQL(app)
 
 # settings
 app.secret_key = "mysecretkey"
