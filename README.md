@@ -2,6 +2,10 @@
 
 # Tener Instalado :  
     youtube-dl
+    
+    # Para instalar youtube-dl
+    :Debian , Ubuntu , Zorin
+    sudo apt-get install youtube-dl
 
 # Usar Python
 
